@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs
+/src/MyPorfolioProject.Application/obj
+/src/MyPorfolioProject.Core/obj
+/src/MyPorfolioProject.Infrastructure/obj
+/src/MyPorfolioProject.Presentation/obj
