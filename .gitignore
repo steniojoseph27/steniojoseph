@@ -14,3 +14,12 @@
 /src/.vs/MyPortfolioProject/v17/.suo
 /src/.vs/MyPortfolioProject/v17/DocumentLayout.json
 /src/.vs/MyPortfolioProject/FileContentIndex/merges/e69cb350-e729-4ab0-9067-dc3521a16539.vsidx
+/src/MyPortfolioProject.Presentation/bin/Debug/net8.0
+/src/MyPortfolioProject.Infrastructure/bin/Debug/net8.0
+/src/MyPortfolioProject.Core/bin/Debug/net8.0
+/src/.vs
+/src/MyPortfolioProject.Application/bin/Debug/net8.0/MyPortfolioProject.Application.deps.json
+/src/MyPortfolioProject.Application/bin/Debug/net8.0/MyPortfolioProject.Application.dll
+/src/MyPortfolioProject.Application/bin/Debug/net8.0/MyPortfolioProject.Application.pdb
+/src/MyPortfolioProject.Application/bin/Debug/net8.0/MyPortfolioProject.Core.pdb
+/src/MyPortfolioProject.Application/bin/Debug/net8.0/MyPortfolioProject.Core.dll
