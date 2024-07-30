@@ -1,6 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MyPortfolioProject.Core\MyPortfolioProject.Core.csproj" />
     <ProjectReference Include="..\MyPortfolioProject.Application\MyPortfolioProject.Application.csproj" />
   </ItemGroup>
