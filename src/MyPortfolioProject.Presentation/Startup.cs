@@ -1,6 +1,17 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using AutoMapper;
+using MediatR;
+using MyPortfolioProject.Application.Mappings;
+using MyPortfolioProject.Application.Services;
+using MyPortfolioProject.Core.Interfaces;
+using MyPortfolioProject.Application.UseCases;
+using Microsoft.Extensions.DependencyInjection;
+using MyPortfolioProject.Infrastructure.Repositories;
+using MyPortfolioProject.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace MyPortfolioProject.Presentation
 {
@@ -16,7 +27,24 @@ namespace MyPortfolioProject.Presentation
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+
+            services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+
+            services.AddAutoMapper(typeof(MappingProfile));
+
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
+                Assembly.GetExecutingAssembly(),
+                typeof(ScheduleMeetingUseCaseHandler).Assembly
+            ));
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IMeetingRepository, MeetingRepository>();
+            services.AddScoped<IAvailabilityRepository, AvailabilityRepository>();
+            services.AddScoped<IUserService, UserService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
