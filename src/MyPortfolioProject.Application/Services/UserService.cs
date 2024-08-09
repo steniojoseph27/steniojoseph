@@ -3,6 +3,7 @@ using AutoMapper;
 using MyPortfolioProject.Core.Entities;
 using MyPortfolioProject.Core.Interfaces;
 using MyPortfolioProject.Application.DTOs;
+using Microsoft.Extensions.Logging;
 
 namespace MyPortfolioProject.Application.Services
 {
@@ -10,17 +11,27 @@ namespace MyPortfolioProject.Application.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
+        private readonly ILogger<UserService> _logger;
 
-        public UserService(IUserRepository userRepository, IMapper mapper)
+        public UserService(IUserRepository userRepository, IMapper mapper, ILogger<UserService> logger)
         {
             _userRepository = userRepository;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<UserDto> GetUserByIdAsync(Guid id)
         {
-            var user = await _userRepository.GetByIdAsync(id);
-            return _mapper.Map<UserDto>(user);
+            try
+            {
+                var user = await _userRepository.GetByIdAsync(id);
+                return _mapper.Map<UserDto>(user);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving user: {id}", id);
+                throw;
+            }
         }
 
         public async Task<UserDto> GetUserByEmailAsync(string email)
