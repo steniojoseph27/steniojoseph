@@ -24,3 +24,5 @@
 /src/MyPortfolioProject.Application/bin/Debug/net8.0/MyPortfolioProject.Core.pdb
 /src/MyPortfolioProject.Application/bin/Debug/net8.0/MyPortfolioProject.Core.dll
 /src/MyPortfolioProject.Presentation/appsettings.json
+/src/MyPortfolioProject.Infrastructure/src/obj/MyPortfolioProject.Infrastructure.EntityFrameworkCore.targets
+/src/src/obj/MyPortfolioProject.Infrastructure.EntityFrameworkCore.targets
