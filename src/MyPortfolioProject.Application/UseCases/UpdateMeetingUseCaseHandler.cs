@@ -23,5 +23,10 @@ namespace MyPortfolioProject.Application.UseCases
             await _meetingRepository.UpdateAsync(meeting);
             return Unit.Value;
         }
+
+        Task IRequestHandler<UpdateMeetingUseCase>.Handle(UpdateMeetingUseCase request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
